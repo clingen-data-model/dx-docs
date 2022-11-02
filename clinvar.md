@@ -129,3 +129,8 @@ When we refer to a canonical variation (type: CanonicalVariation), we intend our
 
 This may feel a bit obvious to some, but there is an important and distinct difference in saying our statement only applies to a single specific allele on a specific sequence (transcript, protein or genomic), which we will often refer to as a "contextual allele" or "contextual variation".
 
+## Examples
+
+* Drug Response
+* Copy Number Variant
+* sample files from gk-pilot?
