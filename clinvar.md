@@ -1,0 +1,1 @@
+# ClinVar Getting Started Guide

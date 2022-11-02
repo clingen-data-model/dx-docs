@@ -1,6 +1,5 @@
 # Data Exchange Documentation
 ## Getting Started Guides
-* ClinVar
+* [ClinVar](clinvar.md)
 * Gene Validity
 * Gene Dosage
-
