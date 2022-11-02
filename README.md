@@ -1,2 +1,6 @@
-# dx-docs
-Documentation for ClinGen Data exchange schemas
+# Data Exchange Documentation
+## Getting Started Guides
+* ClinVar
+* Gene Validity
+* Gene Dosage
+
