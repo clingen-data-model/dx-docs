@@ -27,7 +27,7 @@ On November 15, 2018, the ClinGen RASopathy Variant Curation Expert Panel approv
 NM_004985.5(KRAS):c.458A>T causes Noonan Syndrome (proposition) 
 is supported according to the ClinGen RASopathy ACMG Specifications v1 with a classification of Pathogenic. (statement).
 ### Structured mapping...
-```json
+```
 {
 type: VariationGermlinePathogenicityStatement,
 contributions: [
