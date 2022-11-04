@@ -1,16 +1,18 @@
 # Data Exchange Documentation
+Explain what this site is.
 ## Getting Started Guides
 * [ClinVar](clinvar.md)
 * Gene Validity
 * Gene Dosage
 ## Schemas
+ClinVar Only (+/- Validity)
 * GA4GH Readthedocs (?)
 * JSON Schema
 * ClinVar (uses [v1.2 of GA4GH VRS](https://vrs.ga4gh.org/en/1.2.0/))
 ## Value Sets
 * Automatically generated markdown(?) from Genegraph
 ## Policies
-  * ClinVar
+  * ClinVar (must do)
   * Gene Validity
   * Gene Dosage 
 ## Data Showcase
