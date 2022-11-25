@@ -16,11 +16,12 @@
 (re-frame/reg-event-db
   ::initialize-db
   (fn [db _]
-    {:entities []}))
+    {:entities {}
+     :active-page :getting-started}))
 
 (defn ^:export init []
   (re-frame/dispatch-sync [::initialize-db])
-  #_(re-frame/dispatch [::events/load-schemas])
+  (re-frame/dispatch [::events/load-schemas])
   (re-frame/dispatch [::events/load-documents])
   (mount-root))
 

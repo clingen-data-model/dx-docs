@@ -67,7 +67,42 @@
   [:section.section
    @(re-frame/subscribe [::subs/document-hiccup document-name])])
 
+(defn entities []
+  [:div
+   [:h1.title.is-1 "entities"]
+   [:ul
+    (for [[entity-name entity-attrs] @(re-frame/subscribe [::subs/entities])]
+      ^{:key entity-name}
+      [:li entity-name " (" (:dx-docs/schema-label entity-attrs) ")"])]])
+
+(defn menu []
+  [:aside.menu
+   [:p.menu-label "docs"]
+   [:ul.menu-list
+    [:li [:a
+          {:on-click (fn [] (re-frame/dispatch
+                             [::events/set-active-page :getting-started]))}
+          "ClinVar Getting Started"]]
+    [:li [:a
+          {:on-click (fn [] (re-frame/dispatch
+                             [::events/set-active-page :policies]))}
+          "ClinVar Policies"]]]
+   [:p.menu-label "schemas"]
+   [:ul.menu-list
+    [:li [:a
+          {:on-click (fn [] (re-frame/dispatch
+                             [::events/set-active-page :clinvar-profile]))}
+          "ClinVar Profile"]]]])
+
+(defn active-page []
+  (case @(re-frame/subscribe [::subs/active-page])
+    :getting-started (document :clinvar)
+    :policies (document :policy)
+    :clinvar-profile (entities)
+    (document :clinvar)))
+
 (defn main-panel []
-  (document :clinvar)
-  #_(all-documents)
-  #_(all-schemas))
+  [:section.section
+   [:div.columns
+    [:div.column.is-narrow (menu)]
+    [:div.column (active-page)]]])

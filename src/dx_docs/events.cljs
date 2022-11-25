@@ -35,6 +35,17 @@
                                        doc-name
                                        (.getResponseText (.-target response))]))))))
 
+(defn annotate-entities [json-schema schema-name schema-attrs]
+  (let [entities (or (:$defs json-schema) (:definitions json-schema))]
+    (assoc
+     json-schema
+     :dx-docs/entities
+     (zipmap (keys entities)
+             (map #(assoc %
+                          :dx-docs/schema-label (:label schema-attrs)
+                          :dx-docs/schema-name schema-name)
+                  (vals entities))))))
+
 (re-frame/reg-fx
  ::get-schema
  (fn [args]
@@ -50,7 +61,8 @@
           schema-name
           (-> (.-target response)
               .getResponseJson
-              (js->clj :keywordize-keys true))]))))))
+              (js->clj :keywordize-keys true)
+              (annotate-entities schema-name schema-attrs))]))))))
 
 (re-frame/reg-event-db
  ::recieve-markdown
@@ -80,7 +92,7 @@
    (js/console.log "recieve schema")
    (-> db
        (assoc-in [:schemas name :spec] spec)
-       (update :entities into (or (:$defs spec) (:definitions spec))))))
+       (update :entities merge (:dx-docs/entities spec)))))
 
 (re-frame/reg-event-fx
  ::fetch-schema
@@ -106,3 +118,9 @@
  (fn [db [_ class-name]]
    (js/console.log (str "expand class " class-name))
    (assoc db :page/expanded-class class-name)))
+
+(re-frame/reg-event-db
+ ::set-active-page
+ (fn [db [_ active-page]]
+   (js/console.log (str "set page " active-page))
+   (assoc db :active-page active-page)))

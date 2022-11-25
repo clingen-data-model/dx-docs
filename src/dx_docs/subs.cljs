@@ -51,3 +51,11 @@
 (re-frame/reg-sub
  ::expanded-class
  (fn [db] (:page/expanded-class db)))
+
+(re-frame/reg-sub
+ ::entities
+ (fn [db] (:entities db)))
+
+(re-frame/reg-sub
+ ::active-page
+ (fn [db] (:active-page db)))
