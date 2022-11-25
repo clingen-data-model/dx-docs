@@ -51,8 +51,8 @@
  (fn [args]
    (let [[schema-name schema-attrs] (first args)]
      (js/console.log "Getting schema " (str schema-name))
-     (cljs.pprint/pprint schema-attrs)
-     (js/console.log "Getting schema " (:schema-uri schema-attrs))
+     #_(cljs.pprint/pprint schema-attrs)
+     #_(js/console.log "Getting schema " (:schema-uri schema-attrs))
      (XhrIo/send
       (:schema-uri schema-attrs)
       (fn [^js response]
