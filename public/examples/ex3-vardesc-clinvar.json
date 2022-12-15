@@ -1,0 +1,201 @@
+{
+  "description": "NM_000277.3(PAH):c.898G>T (p.Ala300Ser)",
+  "type": "CanonicalVariationDescriptor",
+  "xrefs": ["https://www.ncbi.nlm.nih.gov/clinvar/92751", "https://identifiers.org/clinvar:92751"],
+  "canonical_variation":
+  {
+    "id": "ga4gh:CLV.3vHjCgW3cJTmVWpk7YSzYpb4zSuhuNch",
+    "type": "CanonicalVariation",
+    "canonical_context":
+    {
+      "id": "ga4gh:VA.AVgwGiVyMXNDlObXMJjdVOMb4sYwsX8K",
+      "type": "Allele",
+      "location":
+      {
+        "id": "ga4gh:SL.yvqrb8PFTGpOW3TU9wh0a8iaE_uliSnH",
+        "type": "SequenceLocation",
+        "sequence_id": "ga4gh:SQ.6wlJpONE3oNb4D69ULmEXhqyDZ4vwNfl",
+        "start":
+        {
+          "type": "Number",
+          "value": 102851700
+        },
+        "end":
+        {
+          "type": "Number",
+          "value": 102851701
+        }
+      },
+      "state":
+      {
+        "type": "LiteralSequenceExpression",
+        "sequence": "A"
+      }
+    }
+  },
+  "extensions": [
+  {
+    "type": "Extension",
+    "name": "entity_type",
+    "value": "variation"
+  },
+  {
+    "type": "Extension",
+    "name": "subclass_type",
+    "value": "SimpleAllele"
+  },
+  {
+    "type": "Extension",
+    "name": "protein_change",
+    "value": "A300S"
+  },
+  {
+    "type": "Extension",
+    "name": "canonical_expression",
+    "value": "NC_000012.12:102851700:C:A"
+  },
+  {
+    "type": "Extension",
+    "name": "descendant_ids",
+    "value": []
+  },
+  {
+    "type": "Extension",
+    "name": "clinvar_variation",
+    "value": "https://identifiers.org/clinvar:92751"
+  },
+  {
+    "type": "Extension",
+    "name": "candidate_expressions",
+    "value": [
+    {
+      "label": "GRCh37",
+      "expression": "NC_000012.11:g.103245479C>A"
+    },
+    {
+      "label": "Text",
+      "expression": "92751"
+    },
+    {
+      "label": "GRCh38",
+      "expression": "NC_000012.12:g.102851701C>A"
+    },
+    {
+      "label": "SPDI",
+      "expression": "NC_000012.12:102851700:C:A"
+    }]
+  },
+  {
+    "type": "Extension",
+    "name": "allele_id",
+    "value": "98658"
+  },
+  {
+    "type": "Extension",
+    "name": "child_ids",
+    "value": []
+  },
+  {
+    "type": "Extension",
+    "name": "clingen_version",
+    "value": 0
+  },
+  {
+    "type": "Extension",
+    "name": "variation_type",
+    "value": "single nucleotide variant"
+  }],
+  "label": "NM_000277.3(PAH):c.898G>T (p.Ala300Ser)",
+  "id": "cgterms:VariationDescriptor_92751.2022-08-13",
+  "members": [
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "NM_000277.3:c.898G>T"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "NM_001354304.2:c.898G>T"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "NM_000277.2:c.898G>T"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "spdi",
+      "value": "NC_000012.12:102851700:C:A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NC_000012.12:g.102851701C>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "P00439:p.Ala300Ser"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NG_008690.2:g.111710G>T"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "NP_000268.1:p.Ala300Ser"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "NP_001341233.1:p.Ala300Ser"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NC_000012.11:g.103245479C>A"
+    }]
+  }]
+}

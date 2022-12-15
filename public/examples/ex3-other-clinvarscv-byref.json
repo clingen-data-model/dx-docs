@@ -1,0 +1,45 @@
+{
+  "description": "GenomeConnect assertions are reported exactly as they appear on the patient-provided report from the testing laboratory. GenomeConnect staff make no attempt to reinterpret the clinical significance of the variant.",
+  "type": "ClinVarOtherStatement",
+  "classification":
+  {
+    "type": "Coding",
+    "id": "cgterms:np",
+    "label": "not_provided"
+  },
+  "record_metadata":
+  {
+    "type": "RecordMetadata",
+    "is_version_of": "cgterms:SCV_Statement_SCV000840271",
+    "version": "2022-07-19"
+  },
+  "contributions": [
+  {
+    "type": "Contribution",
+    "contributor":
+    {
+      "id": "cgterms:clinvar.submitter/506185",
+      "type": "Agent"
+    },
+    "date": "2018-10-10",
+    "activity":
+    {
+      "id": "cgterms:Submitter",
+      "type": "Coding"
+    }
+  }],
+  "id": "cgterms:SCV_Statement_SCV000840271.2022-07-19",
+  "target_proposition":
+  {
+    "type": "ClinVarOtherProposition",
+    "subject": "ga4gh:CLV.3vHjCgW3cJTmVWpk7YSzYpb4zSuhuNch",
+    "predicate": "has_clinvar_other",
+    "object":
+    {
+      "id": "medgen:C0751434",
+      "type": "Disease"
+    }
+  },
+  "subject_descriptor": "cgterms:VariationDescriptor_92751.2022-07-19",
+  "direction": "uncertain"
+}

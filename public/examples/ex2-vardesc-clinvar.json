@@ -1,0 +1,219 @@
+{
+  "description": "NM_000540.3(RYR1):c.7048G>A (p.Ala2350Thr)",
+  "type": "CanonicalVariationDescriptor",
+  "xrefs": ["https://identifiers.org/clinvar:133182", "https://www.ncbi.nlm.nih.gov/clinvar/133182"],
+  "canonical_variation":
+  {
+    "id": "ga4gh:CLV.IOSNf4mZppMgRth6WPxLCkqU63nXv-mN",
+    "type": "CanonicalVariation",
+    "canonical_context":
+    {
+      "id": "ga4gh:VA.IKqodueAaqEu0TfFlZv4YYwUJ0dXqWHh",
+      "type": "Allele",
+      "location":
+      {
+        "id": "ga4gh:SL.eZ-9nOAMTRV5BA4SrX0eUp4Sm7CHs5NU",
+        "type": "SequenceLocation",
+        "sequence_id": "ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl",
+        "start":
+        {
+          "type": "Number",
+          "value": 38499654
+        },
+        "end":
+        {
+          "type": "Number",
+          "value": 38499655
+        }
+      },
+      "state":
+      {
+        "type": "LiteralSequenceExpression",
+        "sequence": "A"
+      }
+    }
+  },
+  "extensions": [
+  {
+    "type": "Extension",
+    "name": "entity_type",
+    "value": "variation"
+  },
+  {
+    "type": "Extension",
+    "name": "subclass_type",
+    "value": "SimpleAllele"
+  },
+  {
+    "type": "Extension",
+    "name": "allele_id",
+    "value": "136929"
+  },
+  {
+    "type": "Extension",
+    "name": "protein_change",
+    "value": "A2350T"
+  },
+  {
+    "type": "Extension",
+    "name": "canonical_expression",
+    "value": "NC_000019.10:38499654:G:A"
+  },
+  {
+    "type": "Extension",
+    "name": "variation_type",
+    "value": "single nucleotide variant"
+  },
+  {
+    "type": "Extension",
+    "name": "child_ids",
+    "value": []
+  },
+  {
+    "type": "Extension",
+    "name": "clinvar_variation",
+    "value": "https://identifiers.org/clinvar:133182"
+  },
+  {
+    "type": "Extension",
+    "name": "descendant_ids",
+    "value": []
+  },
+  {
+    "type": "Extension",
+    "name": "clingen_version",
+    "value": 0
+  },
+  {
+    "type": "Extension",
+    "name": "candidate_expressions",
+    "value": [
+    {
+      "label": "SPDI",
+      "expression": "NC_000019.10:38499654:G:A"
+    },
+    {
+      "label": "Text",
+      "expression": "133182"
+    },
+    {
+      "label": "GRCh37",
+      "expression": "NC_000019.9:g.38990295G>A"
+    },
+    {
+      "label": "GRCh38",
+      "expression": "NC_000019.10:g.38499655G>A"
+    }]
+  }],
+  "label": "NM_000540.3(RYR1):c.7048G>A (p.Ala2350Thr)",
+  "id": "cgterms:VariationDescriptor_133182.2022-08-13",
+  "members": [
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "NP_000531.2:p.Ala2350Thr"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "LRG_766p1:p.Ala2350Thr"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "NM_001042723.2:c.7048G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "P21817:p.Ala2350Thr"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NC_000019.9:g.38990295G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "LRG_766:g.70956G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "LRG_766t1:c.7048G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.c",
+      "value": "NM_000540.3:c.7048G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.p",
+      "value": "NP_001036188.1:p.Ala2350Thr"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NG_008866.1:g.70956G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "hgvs.g",
+      "value": "NC_000019.10:g.38499655G>A"
+    }]
+  },
+  {
+    "type": "VariationMember",
+    "expressions": [
+    {
+      "type": "Expression",
+      "syntax": "spdi",
+      "value": "NC_000019.10:38499654:G:A"
+    }]
+  }]
+}
