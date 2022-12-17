@@ -124,3 +124,9 @@
  (fn [db [_ active-page]]
    (js/console.log (str "set page " active-page))
    (assoc db :active-page active-page)))
+
+(re-frame/reg-event-db
+ ::set-active
+ (fn [db [_ entity]]
+   (js/console.log (str "set active " entity))
+   (assoc db :active entity)))
