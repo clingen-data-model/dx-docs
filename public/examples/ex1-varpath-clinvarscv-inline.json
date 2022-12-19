@@ -1,0 +1,151 @@
+{
+  "id": "cgterms:SCV_Statement_SCV000616375.2022-07-19",
+  "type": "VariationGermlinePathogenicityStatement",
+  "label": "NM_002834.5(PTPN11):c.1403C>T is Pathogenic for Noonan syndrome with multiple lentigines",
+  "description": "The c.1403C>T (p.Thr468Met) variant in PTPN11 has been reported in the literature in at least 2 unconfirmed de novo...",
+  "target_proposition":
+  {
+    "type": "VariationGermlinePathogenicityProposition",
+    "subject":
+    {
+      "id": "ga4gh:CLV.bhd9-o4qCq4N1iKLcMouk6lMx6jVdQwy",
+      "type": "CanonicalVariation",
+      "canonical_context":
+      {
+        "id": "ga4gh:VA.8XBAqLGD1zFY_5gohNqB9QIqeh_1X8nY",
+        "type": "Allele",
+        "location":
+        {
+          "id": "ga4gh:SL.i3TVnf61axG8COAV2XZaGIt4GIHJwIgY",
+          "type": "SequenceLocation",
+          "sequence_id": "ga4gh:SQ.6wlJpONE3oNb4D69ULmEXhqyDZ4vwNfl",
+          "start":
+          {
+            "type": "Number",
+            "value": 112488465
+          },
+          "end":
+          {
+            "type": "Number",
+            "value": 112488466
+          }
+        },
+        "state":
+        {
+          "type": "LiteralSequenceExpression",
+          "sequence": "T"
+        }
+      }
+    },
+    "predicate": "causes_mendelian_condition",
+    "object":
+    {
+      "id": "medgen:C0175704",
+      "type": "Disease"
+    }
+  },
+  "subject_descriptor":
+  {
+    "id": "cgterms:VariationDescriptor_13331.2022-07-19",
+    "label": "NM_002834.5(PTPN11):c.1403C>T (p.Thr468Met)",
+    "type": "CanonicalVariationDescriptor",
+    "canonical_variation": "ga4gh:CLV.bhd9-o4qCq4N1iKLcMouk6lMx6jVdQwy",
+    "xrefs": ["clinvar:13331", "clingen:CA220134", "dbSNP:rs121918457"],
+    "members": [
+    {
+      "type": "VariationMember",
+      "expressions": [
+      {
+        "type": "Expression",
+        "syntax": "hgvs.g",
+        "value": "NC_000012.12:g.112488466C>T"
+      }]
+    },
+    {
+      "type": "VariationMember",
+      "expressions": [
+      {
+        "type": "Expression",
+        "syntax": "hgvs.c",
+        "value": "NM_001374625.1:c.1400C>T"
+      }]
+    },
+    {
+      "type": "VariationMember",
+      "expressions": [
+      {
+        "type": "Expression",
+        "syntax": "hgvs.c",
+        "value": "NM_002834.5:c.1403C>T"
+      }]
+    },
+    {
+      "type": "VariationMember",
+      "expressions": [
+      {
+        "type": "Expression",
+        "syntax": "spdi",
+        "value": "NC_000012.12:112488465:C:T"
+      }]
+    }],
+    "extensions": [
+    {
+      "type": "Extension",
+      "name": "subclass_type",
+      "value": "SimpleAllele"
+    },
+    {
+      "type": "Extension",
+      "name": "clinvar_variation",
+      "value": "https://identifiers.org/clinvar:13331"
+    },
+    {
+      "type": "Extension",
+      "name": "allele_id",
+      "value": "28370"
+    }]
+  },
+  "direction": "supports",
+  "classification":
+  {
+    "type": "Coding",
+    "id": "cgterms:p",
+    "label": "Pathogenic"
+  },
+  "object_descriptor":
+  {
+    "id": "medgen:C0175704",
+    "type": "DiseaseDescriptor",
+    "disease": "medgen:C0175704",
+    "label": "Noonan syndrome with multiple lentigines",
+    "xrefs": ["MONDO:0007893", "MIM:151100"]
+  },
+  "contributions": [
+  {
+    "type": "Contribution",
+    "contributor":
+    {
+      "id": "cgterms:clinvar.submitter/506439",
+      "type": "Agent",
+      "label": "ClinGen RASopathy Variant Curation Expert Panel"
+    },
+    "date": "2017-04-03",
+    "activity":
+    {
+      "id": "cgterms:Approver",
+      "type": "Coding"
+    }
+  }],
+  "record_metadata":
+  {
+    "type": "RecordMetadata",
+    "is_version_of": "cgterms:SCV_Statement_SCV000616375",
+    "version": "2022-07-19"
+  },
+  "extensions": [
+  {
+    "type": "Extension",
+    "name": "clinvar_review_status",
+    "value": "reviewed by expert panel."
+  }]
+}

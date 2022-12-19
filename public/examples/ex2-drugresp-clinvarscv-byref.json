@@ -1,0 +1,76 @@
+{
+  "description": "PharmGKB Level of Evidence 1A: Level 1A clinical annotations describe variant-drug combinations that have variant-specific prescribing guidance available in a current clinical guideline annotation or an FDA-approved drug label annotation. Annotations of drug labels or clinical guidelines must give prescribing guidance for specific variants (e.g. CYP2C9*3, HLA-B*57:01) or provide mapping from defined allele functions to diplotypes and phenotypes to be used as supporting evidence for a level 1A clinical annotation. Level 1A clinical annotations must also be supported by at least one publication in addition to a clinical guideline or drug label with variant-specific prescribing guidance.",
+  "specified_by":
+  {
+    "id": "389f2c8d30888b3148a26f582fe66fd2",
+    "type": "Method",
+    "label": "Pharmacogenomics knowledge for personalized medicine",
+    "is_reported_in":
+    {
+      "id": "PMID:22992668",
+      "type": "Document"
+    }
+  },
+  "type": "ClinVarDrugResponseStatement",
+  "classification":
+  {
+    "type": "Coding",
+    "id": "cgterms:dr",
+    "label": "drug_response"
+  },
+  "record_metadata":
+  {
+    "type": "RecordMetadata",
+    "is_version_of": "cgterms:SCV_Statement_SCV000925581",
+    "version": "2022-08-13"
+  },
+  "contributions": [
+  {
+    "type": "Contribution",
+    "contributor":
+    {
+      "id": "cgterms:clinvar.submitter/500295",
+      "type": "Agent"
+    },
+    "date": "2022-06-18",
+    "activity":
+    {
+      "id": "cgterms:Submitter",
+      "type": "Coding"
+    }
+  },
+  {
+    "type": "Contribution",
+    "contributor":
+    {
+      "id": "cgterms:clinvar.submitter/500295",
+      "type": "Agent"
+    },
+    "date": "2021-03-24",
+    "activity":
+    {
+      "id": "cgterms:Approver",
+      "type": "Coding"
+    }
+  }],
+  "id": "cgterms:SCV_Statement_SCV000925581.2022-08-13",
+  "target_proposition":
+  {
+    "type": "ClinVarDrugResponseProposition",
+    "subject": "ga4gh:CLV.IOSNf4mZppMgRth6WPxLCkqU63nXv-mN",
+    
+    
+    
+    "predicate": "has_clinvar_drug_response",
+    "object":
+    {
+      "id": "cgterms:trait_57150.2022-06-19",
+      "type": "Phenotype"
+    }
+  },
+  "subject_descriptor": "cgterms:VariationDescriptor_133182.2022-08-13",
+  
+  
+  
+  "direction": "uncertain"
+}
