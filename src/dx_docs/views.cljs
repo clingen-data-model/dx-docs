@@ -24,13 +24,36 @@
   [:section.section
    @(re-frame/subscribe [::subs/document-hiccup (:entity entity)])])
 
+(defn ref-link [ref]
+  (let [ref-name (keyword (re-find #"\w+$" ref))]
+    [:a
+     {:on-click (fn [] (re-frame/dispatch [::events/set-active
+                                           {:type :entity
+                                            :entity ref-name}]))}
+     ref-name]))
+
+(defn property-type [property]
+  (cond
+    (= "array" (:type property)) [:div [:li "array"] (property-type (:items property))]
+    (:type property) ^{:key (:type property)} [:li (:type property)]
+    (:$ref property) ^{:key (:$ref property)} [:li (ref-link
+                                                    (:$ref property))]
+    (:oneOf property) [:div (map property-type (:oneOf property))]))
+
 (defmethod render :entity [active]
   (let [entity @(re-frame/subscribe [::subs/entity (:entity active)])]
     [:div
-     [:h1.title.is-1 (:entity active)]
+     [:h3.title.is-3 (:entity active)]
+     [:p.subtitle.is-5 (:description entity)]
      (for [[prop-name prop-attrs] (:properties entity)]
+       ^{:key prop-name}
        [:div.columns
-        [:div.column prop-name]
+        [:div.column.is-one-third
+         [:h6.title.is-6 prop-name]
+         [:ul
+          (when (:dx-docs/required prop-attrs)
+            [:li "required"])
+          (property-type prop-attrs)]]
         [:div.column (:description prop-attrs)]])]))
 
 (defn menu []

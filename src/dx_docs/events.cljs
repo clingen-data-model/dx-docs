@@ -35,24 +35,45 @@
                                        doc-name
                                        (.getResponseText (.-target response))]))))))
 
-(defn annotate-entities [json-schema schema-name schema-attrs]
+(defn annotate-required-properties [entity]
+  (reduce (fn [e req] (assoc-in e [:properties req :dx-docs/required] true))
+          entity
+          (map keyword (:required entity))))
+
+(defn process-json-schema [json-schema schema-name schema-attrs]
   (let [entities (or (:$defs json-schema) (:definitions json-schema))]
     (assoc
      json-schema
      :dx-docs/entities
      (zipmap (keys entities)
-             (map #(assoc %
-                          :dx-docs/schema-label (:label schema-attrs)
-                          :dx-docs/schema-name schema-name)
+             (map #(-> %
+                       (assoc :dx-docs/schema-label (:label schema-attrs)
+                              :dx-docs/schema-name schema-name)
+                       annotate-required-properties)
                   (vals entities))))))
+
+(re-frame/reg-fx
+ ::get-json
+ (fn [args]
+   (let [[uri spec recieve-event] args]
+     (js/console.log "getting json " uri)
+     (cljs.pprint/pprint args)
+     (XhrIo/send
+      uri      
+      (fn [^js response]
+        (re-frame/dispatch
+         [recieve-event
+          spec
+          (-> (.-target response)
+              .getResponseJson
+              (js->clj :keywordize-keys true))]))))))
 
 (re-frame/reg-fx
  ::get-schema
  (fn [args]
    (let [[schema-name schema-attrs] (first args)]
      (js/console.log "Getting schema " (str schema-name))
-     #_(cljs.pprint/pprint schema-attrs)
-     #_(js/console.log "Getting schema " (:schema-uri schema-attrs))
+     (cljs.pprint/pprint args)
      (XhrIo/send
       (:schema-uri schema-attrs)
       (fn [^js response]
@@ -62,7 +83,14 @@
           (-> (.-target response)
               .getResponseJson
               (js->clj :keywordize-keys true)
-              (annotate-entities schema-name schema-attrs))]))))))
+              (process-json-schema schema-name schema-attrs))]))))))
+
+(re-frame/reg-event-db
+ ::recieve-metaschema
+ (fn [db [_ spec metaschema]]
+   (js/console.log "Recieved metaschema ")
+   (cljs.pprint/pprint spec)
+   (update db :metaschema conj spec)))
 
 (re-frame/reg-event-db
  ::recieve-markdown
@@ -95,16 +123,16 @@
        (update :entities merge (:dx-docs/entities spec)))))
 
 (re-frame/reg-event-fx
- ::fetch-schema
- (fn [_ [_ val]]
-   (js/console.log "fetch markdown " val)
-   {:fx [[::get-schema [(:schema-url manifest/schemas) ::recieve-schema]]]}))
-
-(re-frame/reg-event-fx
  ::load-schemas
  (fn [db _]
-   {:fx (mapv (fn [schema] [::get-schema [schema ::recieve-schema]])
-              manifest/schemas)
+   {:fx (mapcat
+         (fn [[schema-name schema-attrs :as schema]]
+           [[::get-schema [schema ::recieve-schema]]
+            [::get-json [(:metaschema-uri schema-attrs) schema ::recieve-metaschema]]])
+         manifest/schemas)
+    #_(mapv (fn [schema] [::get-schema [schema ::recieve-schema]])
+          manifest/schemas)
+
     :db (assoc db :schemas manifest/schemas)}))
 
 (re-frame/reg-event-db
