@@ -96,7 +96,6 @@
  ::recieve-markdown
  (fn [db [_ schema-name result]]
    (js/console.log "recieve-markdown " schema-name)
-   #_(cljs.pprint/pprint (add-bulma-style (md/->hiccup result)))
    (-> db
        (assoc-in [:documents schema-name :markdown] result)
        (assoc-in [:documents schema-name :hiccup]
@@ -115,24 +114,27 @@
     :db (assoc db :documents manifest/documents)}))
 
 (re-frame/reg-event-db
- ::recieve-schema
- (fn [db [_ name spec]]
-   (js/console.log "recieve schema")
+ ::recieve-base-schema
+ (fn [db [_ [schema-name schema-attrs :as spec] base-schema]]
+   (js/console.log "recieve base schema")
    (-> db
-       (assoc-in [:schemas name :spec] spec)
-       (update :entities merge (:dx-docs/entities spec)))))
+       (update :schemas merge spec)
+       (update
+        :entities
+        merge
+        #_{:hi :there}
+        (:dx-docs/entities
+         (process-json-schema base-schema schema-name schema-attrs ))))))
 
 (re-frame/reg-event-fx
  ::load-schemas
  (fn [db _]
    {:fx (mapcat
          (fn [[schema-name schema-attrs :as schema]]
-           [[::get-schema [schema ::recieve-schema]]
+           [#_[::get-schema [schema ::recieve-schema]]
+            [::get-json [(:schema-uri schema-attrs) schema ::recieve-base-schema]]
             [::get-json [(:metaschema-uri schema-attrs) schema ::recieve-metaschema]]])
          manifest/schemas)
-    #_(mapv (fn [schema] [::get-schema [schema ::recieve-schema]])
-          manifest/schemas)
-
     :db (assoc db :schemas manifest/schemas)}))
 
 (re-frame/reg-event-db

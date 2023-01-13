@@ -1,11 +1,11 @@
 (ns dx-docs.manifest)
 
 (def documents
-  {:clinvar {:label "ClinVar"
+  {:clinvar {:label "ClinVar Getting Started"
              :source "/markdown/clinvar.md"}
    :index {:label "Index"
            :source "/markdown/index.md"}
-   :policy {:label "Policy"
+   :policy {:label "ClinVar Policies"
             :source "/markdown/policy.md"}})
 
 (def schemas

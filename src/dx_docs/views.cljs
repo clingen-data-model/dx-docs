@@ -83,6 +83,17 @@
                      :entity :clinvar-profile}]))}
           "ClinVar Profile"]]]])
 
+(defn home []
+  [:section.hero
+   [:div.hero-body
+    [:p.title "ClinGen Data Exchange"]]])
+
+(defn document []
+  #_[:h3.title.is-3 "document"]
+  (if-let [active @(re-frame/subscribe [::subs/active])]
+    @(re-frame/subscribe [::subs/document-hiccup (:entity active)])
+    [:h3.title.is-3 "document not found"]))
+
 (defn main-panel []
   [:section.section
    [:div.columns
