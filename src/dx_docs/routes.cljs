@@ -39,7 +39,6 @@
      [{:parameters {:path [:name]}
        :start (fn [params]
                 (js/console.log "start document")
-                (cljs.pprint/pprint params)
                 (let [profile (keyword (get-in params [:path :name]))]
                   (re-frame/dispatch
                    [:dx-docs.events/set-active
@@ -54,7 +53,6 @@
      [{:parameters {:path [:name]}
        :start (fn [params]
                 (js/console.log "start document")
-                (cljs.pprint/pprint params)
                 (re-frame/dispatch
                  [:dx-docs.events/set-active
                        {:type :page

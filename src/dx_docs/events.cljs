@@ -62,7 +62,6 @@
  (fn [args]
    (let [[uri spec recieve-event] args]
      (js/console.log "getting json " uri)
-     (cljs.pprint/pprint args)
      (XhrIo/send
       uri      
       (fn [^js response]
@@ -78,7 +77,6 @@
  (fn [args]
    (let [[schema-name schema-attrs] (first args)]
      (js/console.log "Getting schema " (str schema-name))
-     (cljs.pprint/pprint args)
      (XhrIo/send
       (:schema-uri schema-attrs)
       (fn [^js response]
@@ -94,7 +92,6 @@
  ::recieve-metaschema
  (fn [db [_ spec metaschema]]
    (js/console.log "Recieved metaschema ")
-   (cljs.pprint/pprint spec)
    (update db :metaschema conj spec)))
 
 (re-frame/reg-event-db
