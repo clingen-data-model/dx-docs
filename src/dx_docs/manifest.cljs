@@ -9,24 +9,34 @@
                     :source "/markdown/policy.md"}})
 
 (def profiles
-  {:clinvar {:label "ClinVar"
+  {:clinvar {:label "ClinVar v1"
              :included-schemas #{:core :vrs :va :vod :catvars}
              :documents #{:clinvar :clinvar-policy}
+             :menu-entities #{:VariationGermlinePathogenicityStatement
+                              :RecordMetadata ; *
+                              :DiseaseDescriptor ; *
+                              :VariationGermlinePathogenicityProposition ; * 
+                              :Allele ; *
+                              :Text ; *
+                              :CanonicalVariation ; *
+                              :Method ; *
+                              :CanonicalVariationDescriptor ; *
+                              :SequenceLocation}
              :entities #{:LiteralSequenceExpression 
-                         :VariationGermlinePathogenicityStatement 
+                         :VariationGermlinePathogenicityStatement ; *
                          :Variation 
                          :DerivedSequenceExpression 
                          :Sequence 
                          :SequenceExpression 
-                         :RecordMetadata 
+                         :RecordMetadata ; *
                          :Gene 
-                         :DiseaseDescriptor 
+                         :DiseaseDescriptor ; *
                          :SystemicVariation 
                          :RepeatedSequenceExpression 
                          :ValueObjectDescriptor 
                          :MolecularVariation 
-                         :VariationGermlinePathogenicityProposition 
-                         :Allele 
+                         :VariationGermlinePathogenicityProposition ; * 
+                         :Allele ; *
                          :Expression 
                          :ComplexVariation 
                          :Number 
@@ -37,19 +47,19 @@
                          :Contribution 
                          :CURIE 
                          :Disease 
-                         :Text 
+                         :Text ; *
                          :CategoricalVariation 
                          :Phenotype 
                          :Coding 
-                         :CanonicalVariation 
-                         :Method 
+                         :CanonicalVariation ; *
+                         :Method ; *
                          :Residue 
                          :VariationMember 
                          :Condition 
                          :Location 
-                         :CanonicalVariationDescriptor 
+                         :CanonicalVariationDescriptor ; *
                          :Agent 
-                         :SequenceLocation 
+                         :SequenceLocation ; * 
                          :IndefiniteRange 
                          :Document 
                          :UtilityVariation }}

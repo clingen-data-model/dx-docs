@@ -16,7 +16,8 @@
    (re-frame/subscribe [::entities]))
  (fn [entities [_ profile]]
    (cljs.pprint/pprint profile)
-   (filter #(get (:entities profile) (first %)) entities)))
+   (group-by #(:dx-docs/schema-label (second %))
+             (sort (filter #(get (:menu-entities profile) (first %)) entities)))))
 
 (re-frame/reg-sub
  ::entity

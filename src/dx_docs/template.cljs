@@ -15,7 +15,7 @@
               :width "30%"
               :height "auto"}]
        
-       "clingen data exchange"]
+       "genegraph"]
       [:a.navbar-burger {:role "button"
                          :aria-label "menu"
                          :aria-expanded "false"
@@ -53,7 +53,7 @@
 (defn profile-menu [profile-name]
   (let [active @(re-frame/subscribe [:dx-docs.subs/active])
         profile (get manifest/profiles profile-name)
-        entities @(re-frame/subscribe [:dx-docs.subs/profile-entities profile])]
+        entity-groups @(re-frame/subscribe [:dx-docs.subs/profile-entities profile])]
     [:aside.menu
      [:p.menu-label "background"]
      [:ul.menu-list
@@ -64,13 +64,17 @@
           {:href (rfe/href :document {:name doc})}
           (get-in manifest/documents [doc :label])]])]
      [:p.menu-label "entities"]
-     [:ul.menu-list
-      (for [[entity-name entity-attrs] entities]
-        ^{:key entity-name}
-        [:li
-         [:a
-          {:href (rfe/href :entity {:name entity-name})}
-          entity-name]])]]))
+     (for [[entity-group entities] entity-groups]
+       ^{:key entity-group}
+       [:div
+        [:p.menu-label entity-group]
+        [:ul.menu-list
+         (for [[entity-name entity-attrs] entities]
+           ^{:key entity-name}
+           [:li
+            [:a
+             {:href (rfe/href :entity {:name entity-name})}
+             entity-name]])]])]))
 
 (defn menu []
   (if-let [current-profile @(re-frame/subscribe [:dx-docs.subs/current-profile])]
