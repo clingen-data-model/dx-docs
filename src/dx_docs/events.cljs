@@ -24,6 +24,11 @@
        x))
    hiccup))
 
+(re-frame/reg-event-db
+ ::set-current-profile
+ (fn [db [_ profile]]
+   (assoc db :current-profile profile)))
+
 (re-frame/reg-fx
  ::get-document
  (fn [args]

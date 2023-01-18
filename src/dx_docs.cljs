@@ -4,14 +4,15 @@
             [re-frame.core :as re-frame]
             [dx-docs.views :as views]
             [dx-docs.events :as events]
-            [dx-docs.routes :as routes]))
+            [dx-docs.routes :as routes]
+            [dx-docs.template :as template]))
 
 (enable-console-print!)
 
 (defn ^:dev/after-load mount-root []
   (let [root-el (.getElementById js/document "app")]
     (rdom/unmount-component-at-node root-el)
-    (rdom/render [routes/router-component] root-el)))
+    (rdom/render [template/root-component] root-el)))
 
 (re-frame/reg-event-db
   ::initialize-db

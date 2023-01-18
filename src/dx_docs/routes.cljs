@@ -27,7 +27,26 @@
    [""
     {:name :home
      :view views/home
-     :link-text "home"}]
+     :link-text "home"
+     :controllers
+     [{:start (fn [params]
+                (re-frame/dispatch
+                   [:dx-docs.events/set-current-profile nil]))}]}]
+   ["profile/:name"
+    {:name :profile
+     :view views/profile
+     :controllers
+     [{:parameters {:path [:name]}
+       :start (fn [params]
+                (js/console.log "start document")
+                (cljs.pprint/pprint params)
+                (let [profile (keyword (get-in params [:path :name]))]
+                  (re-frame/dispatch
+                   [:dx-docs.events/set-active
+                    {:type :page
+                     :entity profile}])
+                  (re-frame/dispatch
+                   [:dx-docs.events/set-current-profile profile])))}]}]
    ["document/:name"
     {:name :document
      :view views/document
@@ -39,7 +58,18 @@
                 (re-frame/dispatch
                  [:dx-docs.events/set-active
                        {:type :page
-                        :entity (keyword (get-in params [:path :name]))}]))}]}]])
+                        :entity (keyword (get-in params [:path :name]))}]))}]}]
+   ["entity/:name"
+    {:name :entity
+     :view views/entity
+     :controllers
+     [{:parameters {:path [:name]}
+       :start (fn [params]
+                (js/console.log "start entity")
+                (re-frame/dispatch
+                 [:dx-docs.events/set-active
+                  {:type :entity
+                   :entity (keyword (get-in params [:path :name]))}]))}]}]])
 
 (def router
   (rf/router routes))
@@ -48,44 +78,6 @@
   (when new-match
     (re-frame/dispatch [::navigated new-match])))
 
-(defn menu []
-  [:aside.menu
-   [:p.menu-label "docs"]
-   [:ul.menu-list
-    [:li [:a
-          {:href (rfe/href :document {:name :clinvar})}
-          #_{:on-click (fn [] (re-frame/dispatch
-                             [:dx-docs.events/set-active
-                              {:type :page
-                               :entity :clinvar}]))}
-          "ClinVar Getting Started"]]
-    [:li [:a
-          {:on-click
-           (fn [] (re-frame/dispatch
-                   [:dx-docs.events/set-active
-                    {:type :page
-                     :entity :policy}]))}
-          "ClinVar Policies"]]]
-   [:p.menu-label "schemas"]
-   [:ul.menu-list
-    [:li [:a
-          {:on-click
-           (fn [] (re-frame/dispatch
-                   [:dx-docs.events/set-active
-                    {:type :entity-list
-                     :entity :clinvar-profile}]))}
-          "ClinVar Profile"]]]])
-
-(defn router-component []
-  (let [current-route @(re-frame/subscribe [::current-route])]
-    [:section.section
-     [:div.columns
-      [:div.column.is-narrow (menu)]
-      [:div.column (when current-route
-                     [(-> current-route :data :view)])]]]))
-
 (defn init-routes! []
   (js/console.log "initializing routes")
   (rfe/start! router on-navigate {:use-fragment true}))
-
-#_(init-routes!)

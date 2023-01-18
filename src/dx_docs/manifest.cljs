@@ -5,8 +5,56 @@
              :source "/markdown/clinvar.md"}
    :index {:label "Index"
            :source "/markdown/index.md"}
-   :policy {:label "ClinVar Policies"
-            :source "/markdown/policy.md"}})
+   :clinvar-policy {:label "ClinVar Policies"
+                    :source "/markdown/policy.md"}})
+
+(def profiles
+  {:clinvar {:label "ClinVar"
+             :included-schemas #{:core :vrs :va :vod :catvars}
+             :documents #{:clinvar :clinvar-policy}
+             :entities #{:LiteralSequenceExpression 
+                         :VariationGermlinePathogenicityStatement 
+                         :Variation 
+                         :DerivedSequenceExpression 
+                         :Sequence 
+                         :SequenceExpression 
+                         :RecordMetadata 
+                         :Gene 
+                         :DiseaseDescriptor 
+                         :SystemicVariation 
+                         :RepeatedSequenceExpression 
+                         :ValueObjectDescriptor 
+                         :MolecularVariation 
+                         :VariationGermlinePathogenicityProposition 
+                         :Allele 
+                         :Expression 
+                         :ComplexVariation 
+                         :Number 
+                         :Extension 
+                         :AbsoluteCopyNumber 
+                         :CategoricalVariationDescriptor 
+                         :DefiniteRange 
+                         :Contribution 
+                         :CURIE 
+                         :Disease 
+                         :Text 
+                         :CategoricalVariation 
+                         :Phenotype 
+                         :Coding 
+                         :CanonicalVariation 
+                         :Method 
+                         :Residue 
+                         :VariationMember 
+                         :Condition 
+                         :Location 
+                         :CanonicalVariationDescriptor 
+                         :Agent 
+                         :SequenceLocation 
+                         :IndefiniteRange 
+                         :Document 
+                         :UtilityVariation }}
+   :gene-dosage {:label "Gene Dosage"}
+   :gene-validity {:label "Gene Validity"}})
 
 (def schemas
   {:core {:label "Common Concepts"

@@ -56,6 +56,23 @@
           (property-type prop-attrs)]]
         [:div.column (:description prop-attrs)]])]))
 
+(defn entity []
+  (let [active @(re-frame/subscribe [::subs/active])
+        entity @(re-frame/subscribe [::subs/entity (:entity active)])]
+    [:div
+     [:h3.title.is-3 (:entity active)]
+     [:p.subtitle.is-5 (:description entity)]
+     (for [[prop-name prop-attrs] (:properties entity)]
+       ^{:key prop-name}
+       [:div.columns
+        [:div.column.is-one-third
+         [:h6.title.is-6 prop-name]
+         [:ul
+          (when (:dx-docs/required prop-attrs)
+            [:li "required"])
+          (property-type prop-attrs)]]
+        [:div.column (:description prop-attrs)]])]))
+
 (defn menu []
   [:aside.menu
    [:p.menu-label "docs"]
@@ -94,8 +111,14 @@
     @(re-frame/subscribe [::subs/document-hiccup (:entity active)])
     [:h3.title.is-3 "document not found"]))
 
+(defn profile []
+  (if-let [active @(re-frame/subscribe [::subs/active])]
+    @(re-frame/subscribe [::subs/document-hiccup (:entity active)])
+    [:h3.title.is-3 "profile"]))
+
 (defn main-panel []
   [:section.section
    [:div.columns
     [:div.column.is-narrow (menu)]
     [:div.column (render @(re-frame/subscribe [::subs/active]))]]])
+
